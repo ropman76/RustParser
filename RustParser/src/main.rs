@@ -1,3 +1,9 @@
+
+mod Token;
+
 fn main() {
-    println!("Hello, world!");
+   
+
+  let m =  Token::ILLEGAL;
+  println!("{}",m);
 }
