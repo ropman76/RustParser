@@ -1,6 +1,7 @@
 
  mod Token;
  use Token::ILLEGAL;
+ mod Lexer;
 fn main() {
    
 
