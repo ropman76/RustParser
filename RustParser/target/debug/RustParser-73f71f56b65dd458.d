@@ -1,0 +1,1 @@
+C:\Users\tropson\Documents\rustparser\RustParser\RustParser\target\debug\RustParser-73f71f56b65dd458.exe: C:\Users\tropson\Documents\rustparser\RustParser\RustParser\src\Token.rs C:\Users\tropson\Documents\rustparser\RustParser\RustParser\src\main.rs
