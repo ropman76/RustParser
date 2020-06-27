@@ -6,9 +6,24 @@ pub struct Lexer{
 
 }
 
-pub fn New(input:String) -> Lexer {
-    let l = Lexer{ input: String::from(input) };
-    l
+pub fn new_lexer (input_string:String) -> Lexer {
+    Lexer {
+        input:String::from(input_string),
+        position,
+        readPosition,
+        ch
+    }
+
+
+}
+
+pub fn New(input_string:String) -> Lexer {
+        input: String::from(input_string),
+        position = 0,
+        readPosition = 0,
+        chi = 0
+
+ 
 }
 
 pub fn readChar(l:Lexer) -> Lexer {
