@@ -1,4 +1,4 @@
-use std::convert::TryInto;
+
 
 pub struct Lexer{
     input:Vec<char>,
@@ -25,8 +25,8 @@ pub fn readChar(mut l:Lexer) -> Lexer {
     } else {
         
      
-      //  l.ch = l.input[l.readPosition];
-        l.ch = l.input[0];
+       l.ch = l.input[l.readPosition];
+       // l.ch = l.input[0];
     }
 
     l.position = l.readPosition;
