@@ -1,7 +1,7 @@
 
    pub struct Token{
-        TokenType:String,
-        ToKenValue:String
+       pub TokenType:String,
+       pub ToKenValue:String
 
     }
 
