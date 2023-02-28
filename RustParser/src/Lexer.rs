@@ -43,7 +43,7 @@ pub fn readChar(mut l:Lexer) -> Lexer {
 }
 
 
-pub fn NextToken(mut l:Lexer)  -> Token{
+pub fn NextToken(mut l:Lexer)  -> (Token,Lexer){
 
  //  let tok =  Token;
 
@@ -91,6 +91,6 @@ pub fn NextToken(mut l:Lexer)  -> Token{
 
     };
     l = readChar(l);
-    tok
+    (tok,l)
 
 }
