@@ -1,12 +1,12 @@
 
-  mod MainToken;
+  mod token;
   mod Lexer;
 
 
 fn main() {
    
 
-    let m =  MainToken::ILLEGAL();
-    let z = MainToken::LET();
+    let m =  token::ILLEGAL();
+    let z = token::LET();
     println!("{}",z);
 }

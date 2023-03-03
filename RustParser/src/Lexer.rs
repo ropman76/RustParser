@@ -1,5 +1,5 @@
-use crate::MainToken::Token;
-use crate::MainToken;
+use crate::token::Token;
+use crate::token;
 
 
 
@@ -49,48 +49,77 @@ pub fn NextToken(mut l:Lexer)  -> (Token,Lexer){
 
   let tok =  match l.ch {
         '=' =>   Token {
-            TokenType: MainToken::ASSIGN(),
-            ToKenValue:l.ch.to_string()
+            TokenType: token::ASSIGN(),
+            ToKenValue:l.ch.to_string(),
+            Litteral: String::new()  
         },
         ';' =>   Token {
-            TokenType: MainToken::SEMICOLON(),
-            ToKenValue:l.ch.to_string()
+            TokenType: token::SEMICOLON(),
+            ToKenValue:l.ch.to_string(),
+            Litteral: String::new()  
+           
         },
         '(' =>   Token {
-            TokenType: MainToken::LPAREN(),
-            ToKenValue:l.ch.to_string()
+            TokenType: token::LPAREN(),
+            ToKenValue:l.ch.to_string(),
+            Litteral: String::new()  
+           
         },
         ')' =>   Token {
-            TokenType: MainToken::RPAREN(),
-            ToKenValue:l.ch.to_string()
+            TokenType: token::RPAREN(),
+            ToKenValue:l.ch.to_string(),
+            Litteral: String::new()  
+          
         },
         ',' =>   Token {
-            TokenType: MainToken::COMMA(),
-            ToKenValue:l.ch.to_string()
+            TokenType: token::COMMA(),
+            ToKenValue:l.ch.to_string(),
+            Litteral: String::new()  
+         
         },
         '+' =>   Token {
-            TokenType: MainToken::COMMA(),
-            ToKenValue:l.ch.to_string()
+            TokenType: token::COMMA(),
+            ToKenValue:l.ch.to_string(),
+            Litteral: String::new()  
+           
         },
         '{' =>   Token {
-            TokenType: MainToken::LBRACE(),
-            ToKenValue:l.ch.to_string()
+            TokenType: token::LBRACE(),
+            ToKenValue:l.ch.to_string(),
+            Litteral: String::new()  
+            
         },
         '}' =>   Token {
-            TokenType: MainToken::RBRACE(),
-            ToKenValue:l.ch.to_string()
+            TokenType: token::RBRACE(),
+            ToKenValue:l.ch.to_string(),
+            Litteral: String::new()  
         },
         '\0' =>   Token {
-            TokenType: MainToken::EOF(),
-            ToKenValue:l.ch.to_string()
+            TokenType: token::EOF(),
+            ToKenValue:l.ch.to_string(),
+            Litteral: String::new()  
         },
         _ =>   Token {
-            TokenType: MainToken::EOF(),
-            ToKenValue:l.ch.to_string()
+            TokenType: token::EOF(),
+            ToKenValue:l.ch.to_string(),
+            Litteral: String::new()  
         },
 
     };
     l = readChar(l);
     (tok,l)
+
+}
+
+fn IsLetter(c: char) -> bool {
+    
+    if c.is_alphabetic(){
+        return true
+    } else if c == '_'{
+        return true
+    } else {
+        return false
+    }
+
 
 }
