@@ -43,6 +43,7 @@ pub fn readChar(mut l:Lexer) -> Lexer {
 }
 
 
+
 pub fn NextToken(mut l:Lexer)  -> (Token,Lexer){
 
  //  let tok =  Token;
@@ -50,58 +51,58 @@ pub fn NextToken(mut l:Lexer)  -> (Token,Lexer){
   let tok =  match l.ch {
         '=' =>   Token {
             TokenType: token::ASSIGN(),
-            ToKenValue:l.ch.to_string(),
+         
             Litteral: String::new()  
         },
         ';' =>   Token {
             TokenType: token::SEMICOLON(),
-            ToKenValue:l.ch.to_string(),
+          
             Litteral: String::new()  
            
         },
         '(' =>   Token {
             TokenType: token::LPAREN(),
-            ToKenValue:l.ch.to_string(),
+           
             Litteral: String::new()  
            
         },
         ')' =>   Token {
             TokenType: token::RPAREN(),
-            ToKenValue:l.ch.to_string(),
+          
             Litteral: String::new()  
           
         },
         ',' =>   Token {
             TokenType: token::COMMA(),
-            ToKenValue:l.ch.to_string(),
+          
             Litteral: String::new()  
          
         },
         '+' =>   Token {
             TokenType: token::COMMA(),
-            ToKenValue:l.ch.to_string(),
+          
             Litteral: String::new()  
            
         },
         '{' =>   Token {
             TokenType: token::LBRACE(),
-            ToKenValue:l.ch.to_string(),
+           
             Litteral: String::new()  
             
         },
         '}' =>   Token {
             TokenType: token::RBRACE(),
-            ToKenValue:l.ch.to_string(),
+          
             Litteral: String::new()  
         },
         '\0' =>   Token {
             TokenType: token::EOF(),
-            ToKenValue:l.ch.to_string(),
+          
             Litteral: String::new()  
         },
         _ =>   Token {
             TokenType: token::EOF(),
-            ToKenValue:l.ch.to_string(),
+          
             Litteral: String::new()  
         },
 
