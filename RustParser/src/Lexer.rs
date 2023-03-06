@@ -50,58 +50,58 @@ pub fn NextToken(mut l:Lexer)  -> (Token,Lexer){
 
   let tok =  match l.ch {
         '=' =>   Token {
-            TokenType: token::ASSIGN(),
+            TokenType: token::TokenType::ASSIGN,
          
-            Litteral: String::new()  
+            Litteral: String::from("=")
         },
         ';' =>   Token {
-            TokenType: token::SEMICOLON(),
+            TokenType: token::TokenType::SEMICOLON,
           
-            Litteral: String::new()  
+            Litteral: String::from(";")
            
         },
         '(' =>   Token {
-            TokenType: token::LPAREN(),
+            TokenType: token::TokenType::LPAREN,
            
-            Litteral: String::new()  
+            Litteral: String::from("(") 
            
         },
         ')' =>   Token {
-            TokenType: token::RPAREN(),
+            TokenType: token::TokenType::RPAREN,
           
-            Litteral: String::new()  
+            Litteral: String::from(")") 
           
         },
         ',' =>   Token {
-            TokenType: token::COMMA(),
+            TokenType: token::TokenType::COMMA,
           
-            Litteral: String::new()  
+            Litteral: String::from(",") 
          
         },
         '+' =>   Token {
-            TokenType: token::COMMA(),
+            TokenType: token::TokenType::COMMA,
           
-            Litteral: String::new()  
+            Litteral: String::from("+")
            
         },
         '{' =>   Token {
-            TokenType: token::LBRACE(),
+            TokenType: token::TokenType::LBRACE,
            
-            Litteral: String::new()  
+            Litteral: String::from("{") 
             
         },
         '}' =>   Token {
-            TokenType: token::RBRACE(),
+            TokenType: token::TokenType::RBRACE,
           
-            Litteral: String::new()  
+            Litteral: String::from("}")   
         },
         '\0' =>   Token {
-            TokenType: token::EOF(),
+            TokenType: token::TokenType::EOF,
           
-            Litteral: String::new()  
+            Litteral: String::from("")   
         },
         _ =>   Token {
-            TokenType: token::EOF(),
+            TokenType: token::TokenType::EOF,
           
             Litteral: String::new()  
         },
