@@ -124,3 +124,18 @@ fn IsLetter(c: char) -> bool {
 
 
 }
+
+fn IsDigit(c: char) -> bool {
+    if c.is_numeric() {
+        return true
+    } else {
+        return false
+    }
+}
+
+fn SkipWhiteSpace(mut l:Lexer) -> Lexer {
+    while l.ch.is_whitespace(){
+       l = readChar(l);
+    }
+    l
+}
