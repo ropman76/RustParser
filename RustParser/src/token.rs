@@ -1,3 +1,6 @@
+use std::collections::HashMap;
+
+
 pub enum TokenType {
     ILLEGAL,
     EOF,
@@ -13,6 +16,10 @@ pub enum TokenType {
     RBRACE,
     FUNCTION,
     LET,
+    True,
+    IF,
+    Else,
+    Return
 
 }
 
@@ -23,6 +30,8 @@ pub enum TokenType {
        pub Litteral:String
 
     }
+  
+
 
     pub fn ILLEGAL() -> String
     {
@@ -89,6 +98,19 @@ pub enum TokenType {
         "LET".to_string()
     }
    
+  fn LookupIdentifierType(identifier : &str ) -> TokenType {
+    let solar_distance = HashMap::from([
+        ("fn", TokenType::FUNCTION),
+        ("let", TokenType::LET),
+        ("true",  TokenType::True),
+        ("if", TokenType::IF),
+        ("else", TokenType::Else),
+        ("return", TokenType::Return),
+    ]);
+
+
+  }
+
 
 #[cfg(test)]
 mod tests {
