@@ -1,6 +1,6 @@
 use std::collections::HashMap;
 
-
+const THRESHOLD: i32 = 10;
 pub enum TokenType {
     ILLEGAL,
     EOF,
@@ -32,11 +32,13 @@ pub enum TokenType {
     }
   
 
+    const  ILLEGAL:String =  String::from("ILLEGAL");
+   pub const  PLUS:String =  String::from("+");
 
-    pub fn ILLEGAL() -> String
-    {
-        "ILLEGAL".to_string()
-    }
+    //pub fn ILLEGAL() -> String
+   // {
+   //     "ILLEGAL".to_string()
+   // }
     
     pub fn EOF() -> String
     {
@@ -58,10 +60,10 @@ pub enum TokenType {
         "=".to_string()
     }
 
-    pub fn PLUS() -> String
-    {
-        "+".to_string()
-    }
+    //pub fn PLUS() -> String
+   // {
+   //     "+".to_string()
+   // }
 
 
     pub fn COMMA() -> String
@@ -99,17 +101,22 @@ pub enum TokenType {
     }
    
   fn LookupIdentifierType(identifier : &str ) -> TokenType {
-    let solar_distance = HashMap::from([
+    let types = HashMap::from([
         ("fn", TokenType::FUNCTION),
         ("let", TokenType::LET),
         ("true",  TokenType::True),
         ("if", TokenType::IF),
         ("else", TokenType::Else),
         ("return", TokenType::Return),
-    ]);
+        ]);
 
 
-  }
+        match types.get(identifier) {
+        Some(tt) => return tt ,
+        _ => return  TokenType::ILLEGAL,
+    }
+
+  
 
 
 #[cfg(test)]

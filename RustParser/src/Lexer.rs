@@ -79,9 +79,9 @@ pub fn NextToken(mut l:Lexer)  -> (Token,Lexer){
          
         },
         '+' =>   Token {
-            TokenType: token::TokenType::COMMA,
+            TokenType: token::TokenType::PLUS,
           
-            Litteral: String::from("+")
+            Litteral: token::PLUS
            
         },
         '{' =>   Token {

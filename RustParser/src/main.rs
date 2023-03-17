@@ -6,7 +6,7 @@
 fn main() {
    
 
-    let m =  token::ILLEGAL();
+    let m =  token::LET();
     let z = token::LET();
     println!("{}",z);
 }
