@@ -32,73 +32,22 @@ pub enum TokenType {
     }
   
 
-    const  ILLEGAL:String =  String::from("ILLEGAL");
+ pub const  ILLEGAL:String =  String::from("ILLEGAL");
    pub const  PLUS:String =  String::from("+");
+   pub const EOF:String =  String::from("EOF");
+   pub const IDENT:String =  String::from("IDENT");
+   pub const INT:String =  String::from("INT");
+   pub const ASSIGN:String =  String::from("=");
+   pub const COMMA:String =  String::from(",");
+   pub const SEMICOLON:String =  String::from(";");
+   pub const LPAREN:String =  String::from("(");
+   pub const RPAREN:String =  String::from(")");
+   pub const LBRACE:String =  String::from("{");
+   pub const RBRACE:String =  String::from("}");
+   pub const FUNCTION:String =  String::from("FUNCTION");
+   pub const LET:String =  String::from("LET");
 
-    //pub fn ILLEGAL() -> String
-   // {
-   //     "ILLEGAL".to_string()
-   // }
-    
-    pub fn EOF() -> String
-    {
-        "EOF".to_string()
-    }
-
-    pub fn IDENT() -> String
-    {
-        "IDENT".to_string()
-    }
-
-    pub fn INT() -> String
-    {
-        "INT".to_string()
-    }
-
-    pub fn ASSIGN() -> String
-    {
-        "=".to_string()
-    }
-
-    //pub fn PLUS() -> String
-   // {
-   //     "+".to_string()
-   // }
-
-
-    pub fn COMMA() -> String
-    {
-        ",".to_string()
-    }
-
-    pub fn SEMICOLON() -> String
-    {
-        ";".to_string()
-    }
-    pub fn LPAREN() -> String
-    {
-        "(".to_string()
-    }
-    pub fn RPAREN() -> String
-    {
-        ")".to_string()
-    }
-    pub fn LBRACE() -> String
-    {
-        "{".to_string()
-    }
-    pub fn RBRACE() -> String
-    {
-        "}".to_string()
-    }
-    pub fn FUNCTION() -> String
-    {
-        "FUNCTION".to_string()
-    }
-    pub fn LET() -> String
-    {
-        "LET".to_string()
-    }
+   
    
   fn LookupIdentifierType(identifier : &str ) -> TokenType {
     let types = HashMap::from([
@@ -110,12 +59,12 @@ pub enum TokenType {
         ("return", TokenType::Return),
         ]);
 
-
-        match types.get(identifier) {
-        Some(tt) => return tt ,
+        let m = identifier;
+        match types.get(m) {
+        Some(tt ) => return tt ,
         _ => return  TokenType::ILLEGAL,
     }
-
+  }
   
 
 
@@ -125,68 +74,68 @@ mod tests {
 
     #[test]
     fn  ILLEGAL_test() {
-        assert_eq!("ILLEGAL", ILLEGAL());
+        assert_eq!("ILLEGAL", ILLEGAL);
     }
 
     #[test]
     fn  EOF_test() {
-        assert_eq!("EOF", EOF());
+        assert_eq!("EOF", EOF);
     }
     #[test]
     fn  IDENT_test() {
-        assert_eq!("IDENT", IDENT());
+        assert_eq!("IDENT", IDENT);
     }
 
     #[test]
     fn  INT_test() {
-        assert_eq!("INT", INT());
+        assert_eq!("INT", INT);
     }
 
     #[test]
     fn  ASSIGN_test() {
-        assert_eq!("=", ASSIGN());
+        assert_eq!("=", ASSIGN);
     }
 
     #[test]
     fn  PLUS_test() {
-        assert_eq!("+", PLUS());
+        assert_eq!("+", PLUS);
     }
 
     #[test]
     fn  COMMA_test() {
-        assert_eq!(",", COMMA());
+        assert_eq!(",", COMMA);
     }
     #[test]
     fn  SEMICOLON_test() {
-        assert_eq!(";", SEMICOLON());
+        assert_eq!(";", SEMICOLON);
     }
 
     #[test]
     fn  LPAREN_test() {
-        assert_eq!("(", LPAREN());
+        assert_eq!("(", LPAREN);
     }
 
     #[test]
     fn  RPAREN_test() {
-        assert_eq!(")", RPAREN());
+        assert_eq!(")", RPAREN);
     }
 
 
     #[test]
     fn  LBRACE_test() {
-        assert_eq!("{", LBRACE());
+        assert_eq!("{", LBRACE);
     }
 
     #[test]
     fn  RBRACE_test() {
-        assert_eq!("}", RBRACE());
+        assert_eq!("}", RBRACE);
     }
 
     #[test]
     fn  FUNCTION_test() {
-        assert_eq!("FUNCTION", FUNCTION());
+        assert_eq!("FUNCTION", FUNCTION);
     }
     fn  LET_test() {
-        assert_eq!("LET", LET());
+        assert_eq!("LET", LET);
     }
 }

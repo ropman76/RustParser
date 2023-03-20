@@ -6,7 +6,7 @@
 fn main() {
    
 
-    let m =  token::LET();
-    let z = token::LET();
+    let m =  token::LET;
+    let z = token::LET;
     println!("{}",z);
 }
