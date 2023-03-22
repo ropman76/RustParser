@@ -1,57 +1,84 @@
 use std::collections::HashMap;
 
-const THRESHOLD: i32 = 10;
-pub enum TokenType {
-    ILLEGAL,
-    EOF,
-    IDENT,
-    INT,
-    ASSIGN,
-    PLUS,
-    COMMA,
-    SEMICOLON,
-    LPAREN,
-    RPAREN,
-    LBRACE,
-    RBRACE,
-    FUNCTION,
-    LET,
-    True,
-    IF,
-    Else,
-    Return
+
+
+#[derive(Clone)]
+pub enum  TokenType {
+     ILLEGAL, 
+     EOF,
+     IDENT,
+     INT,
+     ASSIGN,
+     PLUS,
+     COMMA,
+     SEMICOLON,
+     LPAREN,
+     RPAREN,
+     LBRACE,
+     RBRACE,
+     FUNCTION,
+     LET,
+     True,
+     IF,
+     Else,
+     Return
 
 }
-
-   
+     /*
+   impl Default for TokenType{
+    fn default() -> Self {
+      TokenType{
+            ILLEGAL: String::from("ILLEGAL"),
+            EOF: String::from("EOF"),
+            IDENT: String::from("IDENT"),
+            INT:String::from("INT"),
+              ASSIGN:String::from("="),
+              PLUS:String::from("+"),
+              COMMA:String::from(","),
+              SEMICOLON:String::from(";"),
+              LPAREN:String::from("("),
+              RPAREN:String::from(")"),
+              LBRACE:String::from("{"),
+              RBRACE:String::from("}"),
+              FUNCTION:String::from("FUNCTION"),
+              LET:String::from("let"),
+              True:String::from("true"),
+              IF:String::from("If"),
+              Else:String::from("else"),
+              Return:String::from("return")
+            }
+        }
+      
+    }
+   */
    
    pub struct Token{
        pub TokenType:TokenType,
-       pub Litteral:String
+       pub Litteral: String
 
     }
   
 
- pub const  ILLEGAL:String =  String::from("ILLEGAL");
-   pub const  PLUS:String =  String::from("+");
-   pub const EOF:String =  String::from("EOF");
-   pub const IDENT:String =  String::from("IDENT");
-   pub const INT:String =  String::from("INT");
-   pub const ASSIGN:String =  String::from("=");
-   pub const COMMA:String =  String::from(",");
-   pub const SEMICOLON:String =  String::from(";");
-   pub const LPAREN:String =  String::from("(");
-   pub const RPAREN:String =  String::from(")");
-   pub const LBRACE:String =  String::from("{");
-   pub const RBRACE:String =  String::from("}");
-   pub const FUNCTION:String =  String::from("FUNCTION");
-   pub const LET:String =  String::from("LET");
+   pub const  ILLEGAL:&str =  "ILLEGAL";
+   pub const PLUS:&str =  "+";
+ pub const EOF:&str =  "EOF";
+   pub const IDENT:&str =  "IDENT";
+  pub const INT:&str=  "INT";
+ pub const ASSIGN:&str=  "=";
+  pub const COMMA:&str =  ",";
+ pub const SEMICOLON:&str = ";";
+   pub const LPAREN:&str =  "(";
+   pub const RPAREN:&str =  ")";
+  pub const LBRACE:&str =  "{";
+ pub const RBRACE:&str =  "}";
+   pub const FUNCTION:&str =  "FUNCTION";
+  pub const LET:&str=  "LET";
 
    
    
   fn LookupIdentifierType(identifier : &str ) -> TokenType {
     let types = HashMap::from([
-        ("fn", TokenType::FUNCTION),
+        ("fn",TokenType::FUNCTION),
         ("let", TokenType::LET),
         ("true",  TokenType::True),
         ("if", TokenType::IF),
@@ -59,11 +86,12 @@ pub enum TokenType {
         ("return", TokenType::Return),
         ]);
 
-        let m = identifier;
-        match types.get(m) {
-        Some(tt ) => return tt ,
+     
+     let return_token:TokenType =  match types.get(identifier) {
+       Some(T_Y) =>  T_Y.clone(),
         _ => return  TokenType::ILLEGAL,
-    }
+    };
+    return_token
   }
   
 
@@ -74,7 +102,7 @@ mod tests {
 
     #[test]
     fn  ILLEGAL_test() {
-        assert_eq!("ILLEGAL", ILLEGAL);
+        assert_eq!("ILLEGAL", TokenType::ILLEGAL);
     }
 
     #[test]
