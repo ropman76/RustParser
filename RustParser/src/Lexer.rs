@@ -46,67 +46,9 @@ pub fn readChar(mut l:Lexer) -> Lexer {
 
 pub fn NextToken(mut l:Lexer)  -> (Token,Lexer){
 
- //  let tok =  Token;
+  let tok =  Token::new(l.ch);
 
-  let tok =  match l.ch {
-        '=' =>   Token {
-            TokenType: token::TokenType::ASSIGN,
-         
-            Litteral: String::from("=")
-        },
-        ';' =>   Token {
-            TokenType: token::TokenType::SEMICOLON,
-          
-            Litteral: String::from(";")
-           
-        },
-        '(' =>   Token {
-            TokenType: token::TokenType::LPAREN,
-           
-            Litteral: String::from("(") 
-           
-        },
-        ')' =>   Token {
-            TokenType: token::TokenType::RPAREN,
-          
-            Litteral: String::from(")") 
-          
-        },
-        ',' =>   Token {
-            TokenType: token::TokenType::COMMA,
-          
-            Litteral: String::from(",") 
-         
-        },
-        '+' =>   Token {
-            TokenType: token::TokenType::PLUS,
-          
-            Litteral: token::PLUS
-           
-        },
-        '{' =>   Token {
-            TokenType: token::TokenType::LBRACE,
-           
-            Litteral: String::from("{") 
-            
-        },
-        '}' =>   Token {
-            TokenType: token::TokenType::RBRACE,
-          
-            Litteral: String::from("}")   
-        },
-        '\0' =>   Token {
-            TokenType: token::TokenType::EOF,
-          
-            Litteral: String::from("")   
-        },
-        _ =>   Token {
-            TokenType: token::TokenType::EOF,
-          
-            Litteral: String::new()  
-        },
-
-    };
+ 
     l = readChar(l);
     (tok,l)
 

@@ -57,7 +57,70 @@ pub enum  TokenType {
        pub Litteral: String
 
     }
-  
+  impl Token {
+   pub fn new(n:char) -> Token{
+        let tok =  match n {
+            '=' =>   Token {
+                TokenType: TokenType::ASSIGN,
+             
+                Litteral: ASSIGN.to_string()
+            },
+            ';' =>   Token {
+                TokenType: TokenType::SEMICOLON,
+              
+                Litteral: SEMICOLON.to_string()
+               
+            },
+            '(' =>   Token {
+                TokenType: TokenType::LPAREN,
+               
+                Litteral: LPAREN.to_string()
+               
+            },
+            ')' =>   Token {
+                TokenType: TokenType::RPAREN,
+              
+                Litteral: RPAREN.to_string() 
+              
+            },
+            ',' =>   Token {
+                TokenType: TokenType::COMMA,
+              
+                Litteral: COMMA.to_string()
+             
+            },
+            '+' =>   Token {
+                TokenType: TokenType::PLUS,
+              
+                Litteral: PLUS.to_string()
+               
+            },
+            '{' =>   Token {
+                TokenType: TokenType::LBRACE,
+               
+                Litteral: LBRACE.to_string() 
+                
+            },
+            '}' =>   Token {
+                TokenType: TokenType::RBRACE,
+              
+                Litteral: RBRACE.to_string()   
+            },
+            '\0' =>   Token {
+                TokenType: TokenType::EOF,
+              
+                Litteral: EOF.to_string()   
+            },
+            _ =>   Token {
+                TokenType: TokenType::EOF,
+              
+                Litteral: EOF.to_string() 
+            },
+    
+        };
+        tok
+    }
+  }
 
    pub const  ILLEGAL:&str =  "ILLEGAL";
    pub const PLUS:&str =  "+";
