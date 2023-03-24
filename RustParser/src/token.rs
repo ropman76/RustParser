@@ -2,7 +2,7 @@ use std::collections::HashMap;
 
 
 
-#[derive(Clone)]
+#[derive(Clone,Copy)]
 pub enum  TokenType {
      ILLEGAL, 
      EOF,
@@ -54,7 +54,7 @@ pub enum  TokenType {
    
    pub struct Token{
        pub TokenType:TokenType,
-       pub Litteral: String
+       pub Litteral:String
 
     }
   impl Token {
@@ -80,7 +80,7 @@ pub enum  TokenType {
             ')' =>   Token {
                 TokenType: TokenType::RPAREN,
               
-                Litteral: RPAREN.to_string() 
+                Litteral: RPAREN.to_string()
               
             },
             ',' =>   Token {
@@ -98,23 +98,23 @@ pub enum  TokenType {
             '{' =>   Token {
                 TokenType: TokenType::LBRACE,
                
-                Litteral: LBRACE.to_string() 
+                Litteral: LBRACE.to_string()
                 
             },
             '}' =>   Token {
                 TokenType: TokenType::RBRACE,
               
-                Litteral: RBRACE.to_string()   
+                Litteral: RBRACE.to_string()  
             },
             '\0' =>   Token {
                 TokenType: TokenType::EOF,
               
-                Litteral: EOF.to_string()   
+                Litteral: EOF.to_string()  
             },
             _ =>   Token {
                 TokenType: TokenType::EOF,
               
-                Litteral: EOF.to_string() 
+                Litteral: EOF.to_string()
             },
     
         };
@@ -124,18 +124,18 @@ pub enum  TokenType {
 
    pub const  ILLEGAL:&str =  "ILLEGAL";
    pub const PLUS:&str =  "+";
- pub const EOF:&str =  "EOF";
+   pub const EOF:&str =  "EOF";
    pub const IDENT:&str =  "IDENT";
-  pub const INT:&str=  "INT";
- pub const ASSIGN:&str=  "=";
-  pub const COMMA:&str =  ",";
- pub const SEMICOLON:&str = ";";
+   pub const INT:&str=  "INT";
+   pub const ASSIGN:&str=  "=";
+   pub const COMMA:&str =  ",";
+   pub const SEMICOLON:&str = ";";
    pub const LPAREN:&str =  "(";
    pub const RPAREN:&str =  ")";
-  pub const LBRACE:&str =  "{";
- pub const RBRACE:&str =  "}";
+   pub const LBRACE:&str =  "{";
+   pub const RBRACE:&str =  "}";
    pub const FUNCTION:&str =  "FUNCTION";
-  pub const LET:&str=  "LET";
+   pub const LET:&str=  "LET";
 
    
    
@@ -165,7 +165,7 @@ mod tests {
 
     #[test]
     fn  ILLEGAL_test() {
-        assert_eq!("ILLEGAL", TokenType::ILLEGAL);
+        assert_eq!("ILLEGAL", ILLEGAL);
     }
 
     #[test]
