@@ -1,4 +1,4 @@
-use std::collections::HashMap;
+
 
 
 
@@ -139,23 +139,7 @@ pub enum  TokenType {
 
    
    
-  fn LookupIdentifierType(identifier : &str ) -> TokenType {
-    let types = HashMap::from([
-        ("fn",TokenType::FUNCTION),
-        ("let", TokenType::LET),
-        ("true",  TokenType::True),
-        ("if", TokenType::IF),
-        ("else", TokenType::Else),
-        ("return", TokenType::Return),
-        ]);
-
-     
-     let return_token:TokenType =  match types.get(identifier) {
-       Some(T_Y) =>  T_Y.clone(),
-        _ => return  TokenType::ILLEGAL,
-    };
-    return_token
-  }
+ 
   
 
 

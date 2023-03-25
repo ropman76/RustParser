@@ -1,5 +1,6 @@
 use crate::token::Token;
 use crate::token;
+use std::collections::HashMap;
 
 
 
@@ -54,7 +55,29 @@ pub fn NextToken(mut l:Lexer)  -> (Token,Lexer){
 
 }
 
-fn IsLetter(c: char) -> bool {
+fn LookupIdentifierType(identifier : &str ) -> token::TokenType {
+    let types = HashMap::from([
+        ("fn",token::TokenType::FUNCTION),
+        ("let", token::TokenType::LET),
+        ("true",  token::TokenType::True),
+        ("if", token::TokenType::IF),
+        ("else", token::TokenType::Else),
+        ("return", token::TokenType::Return),
+        ]);
+
+     
+     let return_token:token::TokenType =  match types.get(identifier) {
+       Some(T_Y) =>  T_Y.clone(),
+        _ => return  token::TokenType::ILLEGAL,
+    };
+    return_token
+  }
+  
+
+
+
+
+pub fn IsLetter(c: char) -> bool {
     
     if c.is_alphabetic(){
         return true
@@ -67,7 +90,7 @@ fn IsLetter(c: char) -> bool {
 
 }
 
-fn IsDigit(c: char) -> bool {
+pub fn IsDigit(c: char) -> bool {
     if c.is_numeric() {
         return true
     } else {
@@ -75,9 +98,10 @@ fn IsDigit(c: char) -> bool {
     }
 }
 
-fn SkipWhiteSpace(mut l:Lexer) -> Lexer {
+pub fn SkipWhiteSpace(mut l:Lexer) -> Lexer {
     while l.ch.is_whitespace(){
        l = readChar(l);
     }
     l
 }
+
