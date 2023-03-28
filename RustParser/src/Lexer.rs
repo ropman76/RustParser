@@ -47,7 +47,65 @@ pub fn readChar(mut l:Lexer) -> Lexer {
 
 pub fn NextToken(mut l:Lexer)  -> (Token,Lexer){
 
-  let tok =  Token::new(l.ch);
+    let tok =  match l.ch {
+        '=' =>   Token {
+            TokenType: token::TokenType::ASSIGN,
+         
+            Litteral: token::ASSIGN.to_string()
+        },
+        ';' =>   Token {
+            TokenType: token::TokenType::SEMICOLON,
+          
+            Litteral: token::SEMICOLON.to_string()
+           
+        },
+        '(' =>   Token {
+            TokenType: token::TokenType::LPAREN,
+           
+            Litteral: token::LPAREN.to_string()
+           
+        },
+        ')' =>   Token {
+            TokenType: token::TokenType::RPAREN,
+          
+            Litteral: token::RPAREN.to_string()
+          
+        },
+        ',' =>   Token {
+            TokenType: token::TokenType::COMMA,
+          
+            Litteral: token::COMMA.to_string()
+         
+        },
+        '+' =>   Token {
+            TokenType: token::TokenType::PLUS,
+          
+            Litteral: token::PLUS.to_string()
+           
+        },
+        '{' =>   Token {
+            TokenType: token::TokenType::LBRACE,
+           
+            Litteral: token::LBRACE.to_string()
+            
+        },
+        '}' =>   Token {
+            TokenType: token::TokenType::RBRACE,
+          
+            Litteral: token::RBRACE.to_string()  
+        },
+        '\0' =>   Token {
+            TokenType: token::TokenType::EOF,
+          
+            Litteral: token::EOF.to_string()  
+        },
+        _ =>   Token {
+            TokenType: token::TokenType::EOF,
+          
+            Litteral: token::EOF.to_string()
+        },
+
+    };
 
  
     l = readChar(l);
@@ -73,7 +131,17 @@ fn LookupIdentifierType(identifier : &str ) -> token::TokenType {
     return_token
   }
   
+pub fn PeekChar (l:Lexer) -> (char)
+{
+    if(l.readPosition >= l.input.len())
+    {
+        return '0';
+    } else {
+       return l.input[l.readPosition];
+      
+    }
 
+}
 
 
 
