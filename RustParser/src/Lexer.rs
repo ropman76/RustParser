@@ -173,3 +173,20 @@ pub fn SkipWhiteSpace(mut l:Lexer) -> Lexer {
     l
 }
 
+fn Equals(l:Lexer) -> Token{
+    if PeekChar(l) == '=' {
+      tok =  Token {
+            TokenType: token::TokenType::EQ,
+          
+            Litteral: token::EQ.to_string()  
+        }; 
+    } else {
+        tok =   Token {
+            TokenType: token::TokenType::ASSIGN,
+         
+            Litteral: token::ASSIGN.to_string()
+        }; 
+    }
+
+    tok
+}

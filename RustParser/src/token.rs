@@ -21,7 +21,10 @@ pub enum  TokenType {
      True,
      IF,
      Else,
-     Return
+     Return,
+     EQ,
+     Not_EQ
+
 
 }
      /*
@@ -135,7 +138,9 @@ pub enum  TokenType {
    pub const LBRACE:&str =  "{";
    pub const RBRACE:&str =  "}";
    pub const FUNCTION:&str =  "FUNCTION";
-   pub const LET:&str=  "LET";
+   pub const LET:&str= "LET";
+   pub const EQ:&str=  "=="; 
+   pub const Not_EQ:&str=  "!=";
 
    
    
