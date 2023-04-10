@@ -48,10 +48,20 @@ pub fn readChar(mut l:Lexer) -> Lexer {
 pub fn NextToken(mut l:Lexer)  -> (Token,Lexer){
 
     let tok =  match l.ch {
-        '=' =>   Token {
-            TokenType: token::TokenType::ASSIGN,
-         
-            Litteral: token::ASSIGN.to_string()
+        '=' =>  if PeekChar(l) == '=' {
+               
+            Token {
+                TokenType: token::TokenType::EQ,
+             
+                Litteral: token::EQ.to_string()
+                
+            }
+        } else {
+            Token {
+                TokenType: token::TokenType::ASSIGN,
+             
+                Litteral: token::ASSIGN.to_string()
+            }
         },
         ';' =>   Token {
             TokenType: token::TokenType::SEMICOLON,
@@ -175,13 +185,13 @@ pub fn SkipWhiteSpace(mut l:Lexer) -> Lexer {
 
 fn Equals(l:Lexer) -> Token{
     if PeekChar(l) == '=' {
-      tok =  Token {
+    let  tok =  Token {
             TokenType: token::TokenType::EQ,
           
             Litteral: token::EQ.to_string()  
         }; 
     } else {
-        tok =   Token {
+      let  tok =   Token {
             TokenType: token::TokenType::ASSIGN,
          
             Litteral: token::ASSIGN.to_string()
