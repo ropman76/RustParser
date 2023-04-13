@@ -23,7 +23,8 @@ pub enum  TokenType {
      Else,
      Return,
      EQ,
-     Not_EQ
+     Not_EQ,
+     BANG
 
 
 }
@@ -141,6 +142,7 @@ pub enum  TokenType {
    pub const LET:&str= "LET";
    pub const EQ:&str=  "=="; 
    pub const Not_EQ:&str=  "!=";
+   pub const BANG:&str = "!";
 
    
    

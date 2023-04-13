@@ -49,20 +49,20 @@ pub fn NextToken(mut l:Lexer)  -> (Token,Lexer){
 
     let tok =  match l.ch {
         '=' =>  if PeekChar(l) == '=' {
-               
-            Token {
-                TokenType: token::TokenType::EQ,
-             
-                Litteral: token::EQ.to_string()
-                
-            }
-        } else {
-            Token {
-                TokenType: token::TokenType::ASSIGN,
-             
-                Litteral: token::ASSIGN.to_string()
-            }
-        },
+            l = readChar(l);
+             Token {
+                 TokenType: token::TokenType::EQ,
+              
+                 Litteral: token::EQ.to_string()
+                 
+             }
+         } else {
+             Token {
+                 TokenType: token::TokenType::ASSIGN,
+              
+                 Litteral: token::ASSIGN.to_string()
+             }
+         },
         ';' =>   Token {
             TokenType: token::TokenType::SEMICOLON,
           
@@ -109,6 +109,21 @@ pub fn NextToken(mut l:Lexer)  -> (Token,Lexer){
           
             Litteral: token::EOF.to_string()  
         },
+        '!' => if PeekChar(l) == '=' {
+            l = readChar(l);
+             Token {
+                 TokenType: token::TokenType::Not_EQ,
+              
+                 Litteral: token::Not_EQ.to_string()
+                 
+             }
+         } else {
+             Token {
+                 TokenType: token::TokenType::BANG,
+              
+                 Litteral: token::BANG.to_string()
+             }
+         },
         _ =>   Token {
             TokenType: token::TokenType::EOF,
           
@@ -183,20 +198,5 @@ pub fn SkipWhiteSpace(mut l:Lexer) -> Lexer {
     l
 }
 
-fn Equals(l:Lexer) -> Token{
-    if PeekChar(l) == '=' {
-    let  tok =  Token {
-            TokenType: token::TokenType::EQ,
-          
-            Litteral: token::EQ.to_string()  
-        }; 
-    } else {
-      let  tok =   Token {
-            TokenType: token::TokenType::ASSIGN,
-         
-            Litteral: token::ASSIGN.to_string()
-        }; 
-    }
 
-    tok
-}
+
