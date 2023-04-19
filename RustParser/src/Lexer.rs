@@ -48,7 +48,7 @@ pub fn readChar(mut l:Lexer) -> Lexer {
 pub fn NextToken(mut l:Lexer)  -> (Token,Lexer){
 
     let tok =  match l.ch {
-        '=' =>  if PeekChar(l) == '=' {
+        '=' =>  if PeekChar(&l) == '=' {
             l = readChar(l);
              Token {
                  TokenType: token::TokenType::EQ,
@@ -109,7 +109,7 @@ pub fn NextToken(mut l:Lexer)  -> (Token,Lexer){
           
             Litteral: token::EOF.to_string()  
         },
-        '!' => if PeekChar(l) == '=' {
+        '!' => if PeekChar(&l) == '=' {
             l = readChar(l);
              Token {
                  TokenType: token::TokenType::Not_EQ,
@@ -156,9 +156,11 @@ fn LookupIdentifierType(identifier : &str ) -> token::TokenType {
     return_token
   }
   
-pub fn PeekChar (l:Lexer) -> (char)
+
+
+pub fn PeekChar (l:&Lexer) -> (char)
 {
-    if(l.readPosition >= l.input.len())
+    if l.readPosition >= l.input.len()
     {
         return '0';
     } else {
