@@ -18,7 +18,7 @@ fn main() {
 
    }
   
-
+    let nv =  Lexer::New(Monkey_input);
 
     let m =  token::LET;
     let z = token::LET;
